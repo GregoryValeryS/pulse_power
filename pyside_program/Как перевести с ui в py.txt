@@ -1,0 +1,3 @@
+pyuic5 "C:\GitHub\pulse_power\pyside_program\test.ui" -x -o "C:\GitHub\pulse_power\pyside_program\ui.py"
+
+Далее, как в https://www.youtube.com/watch?v=cK-hvG-Q9B0&feature=youtu.be с 12 минуты
