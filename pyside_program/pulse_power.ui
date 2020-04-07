@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QDialog" name="Form">
+ <class>Dialog_main</class>
+ <widget class="QDialog" name="Dialog_main">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,13 +13,13 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QGroupBox" name="window_signal">
+  <widget class="QGroupBox" name="GroupBox_signal">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
      <width>241</width>
-     <height>221</height>
+     <height>171</height>
     </rect>
    </property>
    <property name="title">
@@ -60,7 +60,7 @@
      <enum>Qt::AutoText</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label_rezim">
+   <widget class="QLabel" name="label_mode">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -73,7 +73,7 @@
      <string>Выберете режим работы станции:</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="rezim">
+   <widget class="QComboBox" name="combo_mode">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -83,7 +83,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="signal_duration">
+   <widget class="QLCDNumber" name="LCD_signal_duration_floor">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -99,7 +99,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="repetition_rate">
+   <widget class="QLCDNumber" name="LCD_repetition_rate">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -115,82 +115,10 @@
      <bool>false</bool>
     </property>
    </widget>
-  </widget>
-  <widget class="QGroupBox" name="window_vattmeter">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>240</y>
-     <width>171</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>4. Показания ваттметра Px, Вт</string>
-   </property>
-   <widget class="QLineEdit" name="vattmeter">
+   <widget class="QLCDNumber" name="LCD_signal_duration_ceil">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>141</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="window_trakt">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>240</y>
-     <width>241</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>3. Тракт</string>
-   </property>
-   <widget class="QLineEdit" name="Dp">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>211</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_Dp">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>211</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Суммарное ослабление тракта - Dp, Дб</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_kosl">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>231</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Коэффециент ослабления тракта - kосл, раз</string>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="kosl">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
+      <x>90</x>
       <y>90</y>
       <width>51</width>
       <height>21</height>
@@ -203,8 +131,161 @@
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="label_dash">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>90</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>—</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QGroupBox" name="window_otvet">
+  <widget class="QGroupBox" name="GroupBox_vattmeter">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>240</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>4. Показания ваттметра Px, Вт</string>
+   </property>
+   <widget class="QLineEdit" name="line_vattmeter">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="GroupBox_tract">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>241</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>3. Тракт</string>
+   </property>
+   <widget class="QLineEdit" name="line_Dp">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_k_attenuation">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Коэфф. осл. тракта - kосл, раз</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="LCD_kosl">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>150</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="midLineWidth">
+     <number>0</number>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Dp_KP_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>КП-2: 22.7 фланец 'контроль' + 0.5 = 23.2;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Dp_KP_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>КП-3: 22. Значение ослабления тракта</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Dp_1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>у вас может отличаться, считате сами.</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Dp">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Суммарное ослабление тракта - Dp, Дб</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Dp_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>равное сумма ослабл. элементов тракта</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="GroupBox_result">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -232,7 +313,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="pm">
+   <widget class="QLabel" name="label_pl_min">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -261,7 +342,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="Rasschet">
+   <widget class="QPushButton" name="button_Rasschet">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -274,7 +355,7 @@
      <string>Расчёт</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Clear">
+   <widget class="QPushButton" name="button_Clear">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -287,7 +368,7 @@
      <string>Очистить</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Metodichka">
+   <widget class="QPushButton" name="button_Metodichka">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -301,7 +382,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QGroupBox" name="window_dialog">
+  <widget class="QGroupBox" name="GroupBox_status">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -313,7 +394,7 @@
    <property name="title">
     <string>Окно диалога</string>
    </property>
-   <widget class="QTextBrowser" name="dialog">
+   <widget class="QTextBrowser" name="txt_status">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -324,7 +405,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QGroupBox" name="window_element">
+  <widget class="QGroupBox" name="GroupBox_element">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -349,7 +430,7 @@
      <string>Выберете элемент перехода:</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="element">
+   <widget class="QComboBox" name="combo_element">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -372,7 +453,7 @@
      <string>Коэффециент эффективности - Кэ</string>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="ke">
+   <widget class="QLCDNumber" name="LCD_ke">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -404,7 +485,7 @@
      <enum>Qt::AutoText</enum>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="Gpr">
+   <widget class="QLCDNumber" name="LCD_Gpr">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -420,7 +501,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_koks">
+   <widget class="QLabel" name="label_a">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -436,7 +517,7 @@
      <enum>Qt::AutoText</enum>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="koks_2">
+   <widget class="QLCDNumber" name="LCD_a">
     <property name="geometry">
      <rect>
       <x>10</x>
