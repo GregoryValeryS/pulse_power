@@ -1,3 +1,34 @@
-pyuic5 "C:\GitHub\pulse_power\pyside_program\test.ui" -x -o "C:\GitHub\pulse_power\pyside_program\ui.py"
+pyuic5 "C:\GitHub\pulse_power\pyside_program\pulse_power.ui" -x -o "C:\GitHub\pulse_power\pyside_program\ui.py"
 
 Далее, как в https://www.youtube.com/watch?v=cK-hvG-Q9B0&feature=youtu.be с 12 минуты
+
+1. В конце файла вырезаем
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QDialog()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())
+2. В начале файла копируем
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+3. Организуем всё следующим образом:
+import sys
+from PyQt5 import QtCore, QtGui, QtWidgets
+from ui import Ui_Form
+
+# Create application - инициализация приложения
+app = QtWidgets.QApplication(sys.argv)
+
+# Create form and init UI - инициализация формы
+Form = QtWidgets.QDialog()
+ui = Ui_Form()
+ui.setupUi(Form)
+Form.show()
+
+# Hook logic
+
+# Run main loop
+sys.exit(app.exec_())
