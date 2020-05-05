@@ -1,1 +1,1 @@
-pyinstaller -w -F -i "icon.ico" pulse_power.py
+pyinstaller -w -F -i "icon.ico" main.py

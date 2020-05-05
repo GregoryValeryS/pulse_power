@@ -1,4 +1,14 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'C:\GitHub\pulse_power\pyside_program\main.ui'
+#
+# Created by: PyQt5 UI code generator 5.14.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtWidgets
+
 
 class Ui_Pulse(object):
     def setupUi(self, Pulse):
@@ -224,7 +234,7 @@ class Ui_Pulse(object):
 
     def retranslateUi(self, Pulse):
         _translate = QtCore.QCoreApplication.translate
-        Pulse.setWindowTitle(_translate("Pulse", "Расчёт импульсной мощности радиостанций КП-2, КП-3"))
+        Pulse.setWindowTitle(_translate("Pulse", "Form"))
         self.GroupBox_signal.setTitle(_translate("Pulse", "1. Сигнал на выходе станции"))
         self.label_signal_duration.setText(_translate("Pulse", "Длительность сигнала - t, мкс"))
         self.label_repetition_rate.setText(_translate("Pulse", "Частота повторения импульсов - Fи, Гц"))

@@ -1,1 +1,1 @@
-pyuic5 "C:\GitHub\pulse_power\pyside_program\pulse_power.ui" -x -o "C:\GitHub\pulse_power\pyside_program\ui.py"
+pyuic5 "C:\GitHub\pulse_power\pyside_program\main.ui" -x -o "C:\GitHub\pulse_power\pyside_program\ui.py"
