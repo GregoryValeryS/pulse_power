@@ -5,14 +5,13 @@ from ui import Ui_Pulse
 
 def bp_rasshet():
     """Функция считывающает данные, производит рассчёт, выводит результат"""
-    ui.txt_status.clear()
     # удаляем пробелы, запятые меняем на точки
     value_vattmeter = ui.line_vattmeter.text().replace(' ', '').replace(',', '.')
     # value_vattmeter состоит из цифр
     # или  если в поле одна точка не в начале и не в конце и если остальные символы - цифры
     if value_vattmeter.isdigit() or (value_vattmeter.count('.') == 1 and value_vattmeter.replace('.', '').isdigit()):
-        ui.txt_status.setText('Расчёт импульсной мощности с диапазоном, '
-                              'учитывающим погрешность измерений, произведён успешно.')
+        ui.txt_status.append('Расчёт импульсной мощности с диапазоном, '
+                              'учитывающим погрешность измерений, произведён успешно.\n')
         value_vattmeter = float(value_vattmeter)
         ui.line_vattmeter.setText(str(value_vattmeter))
         if ui.combo_mode.currentIndex() == 0:  # КП-3
@@ -67,8 +66,8 @@ def bp_rasshet():
 
         if element != station:
             value_vattmeter = 0
-            ui.txt_status.setText('ВНИМАНИЕ! Выбранный вами элемент перехода не подходит'
-                                  ' под частотный диапазон режима работы станции.')
+            ui.txt_status.append('ВНИМАНИЕ! Выбранный вами элемент перехода не подходит'
+                                  ' под частотный диапазон режима работы станции.\n')
 
         ui.LCD_a.display(coaxial_transition_utilization_rate_a)
         ui.LCD_Gpr.display(converter_reflectance_module)
@@ -83,7 +82,7 @@ def bp_rasshet():
                 ui.line_atten_power.setText(str(attenuation_Dp_power))
             else:
                 value_vattmeter = 0
-                ui.txt_status.setText('Ошибка формата данных в "5. Ослабление по мощности".')
+                ui.txt_status.append('Ошибка формата данных в "5. Ослабление по мощности".\n')
         input_atten_ampl = ui.line_atten_ampl.text().replace(' ', '').replace(',', '.')
         # удаляем пробелы, запятые меняем на точки
 
@@ -96,7 +95,7 @@ def bp_rasshet():
                 ui.line_atten_ampl.setText(str(attenuation_Dp_ampl))
             else:
                 value_vattmeter = 0
-                ui.txt_status.setText('Ошибка формата данных в "4. Ослабление по амплитуде".')
+                ui.txt_status.append('Ошибка формата данных в "4. Ослабление по амплитуде".\n')
 
         attenuation_ampl = 10 ** (attenuation_Dp_ampl / 20)
         attenuation_power = 10 ** (attenuation_Dp_power / 20)
@@ -120,28 +119,28 @@ def bp_rasshet():
         ui.range_pulse_power.display(pulse_power_range / 1000)
 
         if pulse_power_mean > 500000:
-            ui.txt_status.setText('Расчёт импульсной мощности произведён, но полученное значение '
+            ui.txt_status.append('Расчёт импульсной мощности произведён, но полученное значение '
                                   'характеристки значительно выше указанных в ТТХ станций.\n\n'
                                   'Проверьте правильность заполнения 3, 4, 5 окон, '
-                                  'обратите внимание на единицы измерения величин.')
+                                  'обратите внимание на единицы измерения величин.\n')
     else:
-        ui.txt_status.setText('Ошибка формата данных в "3. Показания ваттметра".')
+        ui.txt_status.append('Ошибка формата данных в "3. Показания ваттметра".\n')
 
 
 def bp_manual():
     """Вывод инструкции эксплуатации программы"""
-    ui.txt_status.setText('Большая часть параметров определяется автоматически.\n\n'
+    ui.txt_status.append('Большая часть параметров определяется автоматически.\n\n'
                           'В пункте "1" выберете станцию и режим работы.\n'
                           'В пункте "2" выберете элемент перехода из комплекта ваттметра.\n'
                           'В пункте "3" внесите показания ваттметра в кВт.\n\n'
                           'Пункты "4" и "5" заполянются автоматически для тракта, собранного БРЭК в/ч 45097, '
-                          'но Вы можете указать значения но основе собранного вами тракта, '
+                          'но Вы можете указать значения на основе собранного вами тракта, '
                           'обратите внимание на различие ослабления по амплитуде и по мощности.\n\n')
 
 
 def bp_clear():
     """Очистка всех заполняемых полей"""
-    ui.txt_status.setText('Очистка полей выполнена')
+    ui.txt_status.append('Очистка полей выполнена\n')
     ui.line_vattmeter.clear()
     ui.line_atten_ampl.clear()
     ui.line_atten_power.clear()
@@ -167,6 +166,11 @@ def main():
     ui.button_Calculation.clicked.connect(bp_rasshet)  # присоединим к нажатию кнопки Rasschet функцию bp_rasshet
     # сейчас мне стыдно за такие названия кнопок, типа Rasschet, но переписывать не буду
     ui.button_Manual.clicked.connect(bp_manual)  # присоединим к нажатию кнопки Методичка функцию bp_clear
+
+    ui.txt_status.append('Программа "Pulse Power" иницирована и готова к использованию\n'
+                         'Версия - Beta 0.2\n'
+                         'Связь с автором - Г.Скворцов GregoryValeryS@gmail.com\n'
+                         'GNU General Public License v3.0\n')
 
     sys.exit(app.exec_())  # Run main loop
 
