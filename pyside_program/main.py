@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets
 from ui import Ui_Pulse
 
 
-def bp_rasshet():
+def bp_calc():
     """Функция считывающает данные, производит рассчёт, выводит результат"""
     # удаляем пробелы, запятые меняем на точки
     value_vattmeter = ui.line_vattmeter.text().replace(' ', '').replace(',', '.')
@@ -163,7 +163,7 @@ def main():
     Pulse.show()
 
     ui.button_Clear.clicked.connect(bp_clear)  # очистка при нажатии кнопка Clear
-    ui.button_Calculation.clicked.connect(bp_rasshet)  # присоединим к нажатию кнопки Rasschet функцию bp_rasshet
+    ui.button_Calculation.clicked.connect(bp_calc)  # присоединим к нажатию кнопки Rasschet функцию bp_calc
     # сейчас мне стыдно за такие названия кнопок, типа Rasschet, но переписывать не буду
     ui.button_Manual.clicked.connect(bp_manual)  # присоединим к нажатию кнопки Методичка функцию bp_clear
 
